@@ -1,0 +1,38 @@
+body {
+  margin-top: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  list-style-type: none;
+}
+
+.card-body > li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-body .name{
+  margin-right: 20px;
+}
+
+.add-birthday-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+/* 
+.card {
+  box-shadow: 5px 10px 8px;
+} */
+
+
+

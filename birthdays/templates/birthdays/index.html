@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'birthdays/style.css' %}">
+  
+  <title>Birthday Reminder</title>
+</head>
+<body>
+  <h1>Birthday Reminder</h1>
+  <div class="list-container">
+    
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header">All Birthdays</div>
+      <div class="card-body">
+        {% for object in object_list %}
+          <li><div class="name">{{ object }} {{ object.last_name }}</div> <div>{{ object.birth_date }}</div></li>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+      <div class="card-header">This Month</div>
+      <div class="card-body">
+        {% for object in object_list_thisMonth %}
+          <li><div class="name">{{ object }} {{ object.last_name }}</div> {{ object.birth_date }}</li>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+      <div class="card-header"><strong>Today</strong>{{ now }}</div>
+      <div class="card-body">
+        {% for object in object_today %}
+          <li><div class="name">{{ object }} {{ object.last_name }}</div> {{ object.birth_date }}</li>
+        {% endfor %}
+       </div>
+    </div>
+
+  </div>
+  <div class="add-birthday-container">
+    <button type="button" class="btn btn-primary">Add Birthday</button>
+  </div>
+  
+    
+
+</body>
+</html>
