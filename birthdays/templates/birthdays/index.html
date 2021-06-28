@@ -21,7 +21,7 @@
       <div class="card-header">All Birthdays</div>
       <div class="card-body">
         {% for object in object_list %}
-          <li><div class="name">{{ object }} {{ object.last_name }}</div> <div>{{ object.birth_date }}</div></li>
+          <li><div class="name">{{ object }} {{ object.lastName }}</div> <div>{{ object.birthDate }}</div></li>
         {% endfor %}
       </div>
     </div>
@@ -29,8 +29,8 @@
     <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
       <div class="card-header">This Month</div>
       <div class="card-body">
-        {% for object in object_list_thisMonth %}
-          <li><div class="name">{{ object }} {{ object.last_name }}</div> {{ object.birth_date }}</li>
+        {% for object in object_list_this_month %}
+          <li><div class="name">{{ object }} {{ object.lastName }}</div> {{ object.birthDate }}</li>
         {% endfor %}
       </div>
     </div>
@@ -39,7 +39,7 @@
       <div class="card-header"><strong>Today</strong>{{ now }}</div>
       <div class="card-body">
         {% for object in object_today %}
-          <li><div class="name">{{ object }} {{ object.last_name }}</div> {{ object.birth_date }}</li>
+          <li><div class="name">{{ object }} {{ object.lastName }}</div> {{ object.birthDate }}</li>
         {% endfor %}
        </div>
     </div>
