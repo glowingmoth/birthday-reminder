@@ -14,42 +14,33 @@
   <title>Birthday Reminder</title>
 </head>
 <body>
-  <h1>Birthday Reminder</h1>
-  <div class="list-container">
-    
-    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-      <div class="card-header">All Birthdays</div>
-      <div class="card-body">
-        {% for object in object_list %}
-          <li><div class="name">{{ object }} {{ object.lastName }}</div> <div>{{ object.birthDate }}</div></li>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-      <div class="card-header">This Month</div>
-      <div class="card-body">
-        {% for object in object_list_this_month %}
-          <li><div class="name">{{ object }} {{ object.lastName }}</div> {{ object.birthDate }}</li>
-        {% endfor %}
-      </div>
-    </div>
-    
-    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-      <div class="card-header"><strong>Today</strong>{{ now }}</div>
-      <div class="card-body">
-        {% for object in object_today %}
-          <li><div class="name">{{ object }} {{ object.lastName }}</div> {{ object.birthDate }}</li>
-        {% endfor %}
-       </div>
-    </div>
-
-  </div>
-  <div class="add-birthday-container">
-    <button type="button" class="btn btn-primary">Add Birthday</button>
-  </div>
   
+  <h1>Birthday Reminder</h1> <h4 class="sub-heading">Date {{ timeNow }}</h4>
+
+  <div class="list-container">
+
+    <div class="list-item">
+      <h3>All Birthdays</h3>
+        {% for object in object_list %}
+          <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
+        {% endfor %}
+    </div>
     
+    <div class="list-item">
+      <h3>This Month</h3>
+        {% for object in object_this_month %}
+          <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
+        {% endfor %}
+    </div>
+      
+    <div class="list-item">
+      <h3>Today</h3>
+        {% for object in object_today %}
+          <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
+        {% endfor %}
+    </div>  
+
+  </div>
 
 </body>
 </html>

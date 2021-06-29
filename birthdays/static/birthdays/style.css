@@ -6,9 +6,19 @@ h1 {
   text-align: center;
 }
 
+.sub-heading {
+ text-align: center;
+}
+
 .list-container {
+  margin-top: 50px;
   display: flex;
   justify-content: space-around;
+}
+
+.list-item {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 li {
@@ -24,15 +34,8 @@ li {
   margin-right: 20px;
 }
 
-.add-birthday-container {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-/* 
-.card {
-  box-shadow: 5px 10px 8px;
-} */
+
+
 
 
 
