@@ -7,6 +7,8 @@
             
     <p>{{ form.password.label }} {{ form.password }}</p>
 
+    <p>{{ form.errors }}</p>
+    <input type="submit" name="Login User">
 </form>
 
 {% for message in messages %}

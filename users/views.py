@@ -23,14 +23,18 @@ def loginPage(request):
     form = AuthenticationForm()
 
     if request.method == 'POST':
-        username = request.POST.get['username']
-        password = request.POST.get['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:    
             login(request, user)
             return redirect('index')
         else:
-            messages.info(request, 'Username or password is incorrect')
+            messages.info(request, 'Username OR password is incorrect')
 
     context = {'form': form}
     return render(request, 'users/login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
