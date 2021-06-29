@@ -9,6 +9,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('list/', include('birthdays.urls')),
     path('', include('users.urls')),
-    path('', include('django.contrib.auth.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
