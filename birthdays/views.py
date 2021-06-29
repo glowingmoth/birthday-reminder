@@ -2,6 +2,7 @@ from .models import Birthday
 from django.utils import timezone
 from django.shortcuts import render
 
+
 def index(request):
   timeNow = timezone.now()
   context = {
