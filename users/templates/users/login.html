@@ -1,19 +1,45 @@
-<h1>Login</h1>
+{% load static %}
 
-<form method="POST" action="">
-    {% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Reminder</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
+</head>
+<body>
+    <div class="top-nav">
+        <h1>Birthday Reminder</h1>
+    </div>
+    
+    <div class="user-form">
+        <h1>Login</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
 
-    <p>{{ form.username.label }} {{ form.username }}</p>
+            <p>{{ form.username.label }} {{ form.username }}</p>
+                    
+            <p>{{ form.password.label }} {{ form.password }}</p>
+
+            <p>{{ form.errors }}</p>
+            <input type="submit" value="Login" name="Login User">
             
-    <p>{{ form.password.label }} {{ form.password }}</p>
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        
+        </form>
+        
+        <div class="user-form-link">
+            <a href="{% url 'register' %}">Don't have an account? Sign up</a>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
 
-    <p>{{ form.errors }}</p>
-    <input type="submit" value="Login" name="Login User">
-</form>
 
-{% for message in messages %}
-    <p>{{ message }}</p>
-{% endfor %}
-
-<a href="{% url 'register' %}">Don't have an account? Sign up</a>
 

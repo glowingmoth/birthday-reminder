@@ -1,3 +1,21 @@
-* {
-    background-color: black;
+.top-nav {
+    display: flex;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.user-form {
+    width: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-form-link {
+    text-align: center;
+    margin-top: 50px;
 }

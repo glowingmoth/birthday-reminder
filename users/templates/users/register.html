@@ -1,20 +1,44 @@
+{% load static %}
 
-
-<h1>Register</h1>
-
-<form method="POST" action="">
-    {% csrf_token %}
-
-    <p>{{ form.username.label }} {{ form.username }}</p>
-        
-    <p>{{ form.email.label }} {{ form.email }}</p>
-            
-    <p>{{ form.password1.label }} {{ form.password1 }}</p>
-            
-    <p>{{ form.password2.label }} {{ form.password2 }}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Reminder</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
+</head>
+<body>
+    <div class="top-nav">
+        <h1>Birthday Reminder</h1>
+    </div>
     
-    <p>{{ form.errors }}</p>
-    <input type="submit" name="Create User">
-</form>
+    <div class="user-form">
+        <h1>Register</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+        
+            <p>{{ form.username.label }} {{ form.username }}</p>
+                
+            <p>{{ form.email.label }} {{ form.email }}</p>
+                    
+            <p>{{ form.password1.label }} {{ form.password1 }}</p>
+                    
+            <p>{{ form.password2.label }} {{ form.password2 }}</p>
+            
+            <p>{{ form.errors }}</p>
+            <input type="submit" name="Create User">
+        </form>
+    </div>
+    
 
-<a href="{% url 'login' %}">Already have an account?</a>
+    <div class="user-form-link">
+        <a href="{% url 'login' %}">Already have an account?</a>
+    </div>
+    
+</body>
+</html>
+
+
+
