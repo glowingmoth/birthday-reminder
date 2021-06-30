@@ -1,21 +1,28 @@
+from datetime import datetime
 from .models import Birthday
 from django.utils import timezone
+import datetime
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 def index(request):
-  timeNow = timezone.now()
+  testDate = datetime.datetime(1998, 1, 14)
+  
+  # timeNow = testDate
+  timeNow = timezone.localtime()
+ 
   context = {
     'timeNow': timeNow,
     'object_list': Birthday.objects.all(),
     'object_this_month': Birthday.objects.filter(birthDate__month=timeNow.strftime('%m')),
-    'object_this_week': Birthday.objects.filter(birthDate__month=timeNow.strftime('%m'), birthDate__week=timeNow.strftime('%W')),
-    'object_today': Birthday.objects.filter(birthDate__month=timeNow.strftime('%m'), birthDate__day=timeNow.strftime('%d'))
+    'object_this_week': Birthday.objects.filter(birthDate__week=timeNow.strftime('%W')),
+    'object_today': Birthday.objects.filter(birthDate__day=timeNow.strftime('%d'))
   }
+  print(context['object_this_month'])
   return render(request, 'birthdays/index.html', context)
 
 
-# The Query Set field lookup '__day' only takes integers however .strftime() 2nd argument '%d' uses decimals which caused a bug
-# when displaying birthdays for the current day. Converting the formatted number to an integer fixed the bug. 
+# There was some bug/issue with using 'timezone.now()' so I changed it to 'timezone.localtime()' and that resolved it.
+# The problem was .now() returns the current UTC and not the local time adjusted.
   

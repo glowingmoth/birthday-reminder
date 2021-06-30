@@ -14,9 +14,20 @@
   <title>Birthday Reminder</title>
 </head>
 <body>
+
+  <div class="top-nav">
+    <div>
+      <h1>Birthday Reminder</h1>
+      <h4 class="sub-heading">{{ timeNow }}</h4>
+    </div>
+    <div>
+      <span class="logged-in-user">Hello <strong>{{ request.user|capfirst }}</strong>! </span> 
+      <a href="{% url 'logout' %}">Logout</a>
+    </div>  
+  </div>
+
   
-  <h1>Birthday Reminder</h1> <h4 class="sub-heading">Date {{ timeNow }}</h4>
-  <span>Hello <strong>{{ request.user|capfirst }}</strong> </span><a href="{% url 'logout' %}">Logout</a>
+  
   <div class="list-container">
 
     <div class="list-item">

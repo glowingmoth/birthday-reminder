@@ -6,6 +6,16 @@ h1 {
   text-align: center;
 }
 
+.top-nav {
+  display: flex;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
 .sub-heading {
  text-align: center;
 }
