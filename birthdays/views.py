@@ -22,6 +22,8 @@ def index(request):
   print(context['object_this_month'])
   return render(request, 'birthdays/index.html', context)
 
+def addBirthday(request):
+  return render(request, 'birthdays/addbirthday.html' )
 
 # There was some bug/issue with using 'timezone.now()' so I changed it to 'timezone.localtime()' and that resolved it.
 # The problem was .now() returns the current UTC and not the local time adjusted.
