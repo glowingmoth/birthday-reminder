@@ -6,10 +6,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'birthdays/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
     <title>Birthday Reminder</title>
 </head>
 <body>
-    <h1>ADD BIRTHDAY</h1>
+    <div class="top-nav">
+        <div>
+          <a href="{% url 'index' %}">Back</a>
+        </div>
+        <div>
+          <h1>Birthday Reminder</h1>
+          <h4 class="sub-heading">{{ timeNow }}</h4>
+        </div>
+        <div>
+          <span class="logged-in-user">Hello <strong>{{ request.user|capfirst }}</strong>! </span> 
+          <a href="{% url 'logout' %}">Logout</a>
+        </div>  
+    </div>
+
+    <div class="birthday-form">
+        <h3>ADD BIRTHDAY</h3>
+        <form action="" method="POST">
+            <div>
+                <label for="firstname">First Name:</label>
+                <input type="text" name="firstname">
+            </div>
+            <div>
+                <label for="lastname">Last Name:</label>
+                <input type="text" name="lastname">
+            </div>
+            <div>
+                <label for="birthday">Birthday:</label>
+                <input type="date" name="birthday">
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+    
 </body>
 </html>

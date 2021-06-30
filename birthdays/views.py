@@ -22,6 +22,7 @@ def index(request):
   print(context['object_this_month'])
   return render(request, 'birthdays/index.html', context)
 
+@login_required(login_url='login')
 def addBirthday(request):
   return render(request, 'birthdays/addbirthday.html' )
 
