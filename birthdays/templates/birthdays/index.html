@@ -32,6 +32,13 @@
           <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
         {% endfor %}
     </div>
+
+    <div class="list-item">
+      <h3>This Week</h3>
+        {% for object in object_this_week %}
+          <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
+        {% endfor %}
+    </div> 
       
     <div class="list-item">
       <h3>Today</h3>
