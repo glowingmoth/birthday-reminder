@@ -23,10 +23,18 @@
       <h1>Birthday Reminder</h1>
       <h4 class="sub-heading">{{ timeNow }}</h4>
     </div>
+    
     <div>
+    
+      {% if user.is_superuser %} <!-- Read docs = django.contrib.auth -->
+        <span><a href="{% url 'admin:index' %}">Admin</a></span>
+      {% endif %}
+
       <span class="logged-in-user">Hello <strong>{{ request.user|capfirst }}</strong>! </span> 
+      
       <a href="{% url 'logout' %}">Logout</a>
     </div>  
+  
   </div>
 
   
