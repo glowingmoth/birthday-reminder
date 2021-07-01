@@ -24,12 +24,21 @@
         </div>  
     </div>
 
-    <form method="POST">
-        {% csrf_token %}
+    
+    <div class="birthday-form">
 
-        {{ form }}
-        <input type="submit">
-    </form>
+        <h2>Add Birthday</h2>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+    
+            {{ form.as_p }} 
+
+            <input type="submit">
+        </form>
+        
+    </div>
+    
     
 </body>
 </html>
