@@ -8,9 +8,10 @@ class BirthdayAdmin(admin.ModelAdmin):
     'birthDate',
     'created_at',
     'updated_at',
+    'created_by',
   ]
   readonly_fields = ['created_at', 'updated_at']
-  list_display = ('firstName', 'lastName', 'birthDate', 'created_at', 'updated_at')
+  list_display = ('firstName', 'lastName', 'birthDate', 'created_at', 'updated_at','created_by')
 
   class Meta:
     model = Birthday

@@ -6,7 +6,7 @@ from .models import Birthday
 class BirthdayForm(ModelForm):
     class Meta:
         model = Birthday
-        fields = '__all__'
+        exclude = ('created_by',)
         widgets = { 'birthDate': TextInput(attrs={'placeholder': 'yyyy-mm-dd'}),}  # Read docs = widgets
 
        

@@ -1,0 +1,4 @@
+<li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}
+  {% if object.created_by %}
+    {{ object.created_by }}
+  {% endif %} {% if object.created_by == request.user %}<a href="{{ object.get_edit_url }}">EDIT</a>{% endif %}</li>

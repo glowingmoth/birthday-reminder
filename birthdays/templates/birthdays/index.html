@@ -44,28 +44,28 @@
     <div class="list-item">
       <h3>All Birthdays</h3>
         {% for object in object_list %}
-          <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
+          {% include 'birthdays/birthday_snip_name.html' %}
         {% endfor %}
     </div>
     
     <div class="list-item">
       <h3>This Month</h3>
         {% for object in object_this_month %}
-          <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
+        {% include 'birthdays/birthday_snip_name.html' %}
         {% endfor %}
     </div>
 
     <div class="list-item">
       <h3>This Week</h3>
         {% for object in object_this_week %}
-          <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
+        {% include 'birthdays/birthday_snip_name.html' %}
         {% endfor %}
     </div> 
       
     <div class="list-item">
       <h3>Today</h3>
         {% for object in object_today %}
-          <li>{{ object.firstName }} {{ object.lastName }} {{ object.birthDate }}</li>
+          {% include 'birthdays/birthday_snip_name.html' %}
         {% endfor %}
     </div>  
 

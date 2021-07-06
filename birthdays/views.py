@@ -30,14 +30,35 @@ def addBirthday(request):
     form = BirthdayForm()
 
     if request.method == 'POST':
-      # print(request.POST)
+      print(request.user, '**********************')
       form = BirthdayForm(request.POST)
+      
       if form.is_valid():
-        form.save()
+        mynewbirthdayobject = form.save()
+        mynewbirthdayobject.created_by = request.user
+        mynewbirthdayobject.save()        
         return redirect('index')
-
+    print(request.user, '**********************')
     context = {'form': form}
     return render(request, 'birthdays/addbirthday.html', context)
+
+def updateBirthday(request):
+  form = BirthdayForm()
+
+  if request.method == 'POST':
+    print(request.user, '**********************')
+    form = BirthdayForm(request.POST)
+    
+    if form.is_valid():
+      mynewbirthdayobject = form.save()
+      mynewbirthdayobject.created_by = request.user
+      mynewbirthdayobject.save()        
+      return redirect('index')
+  print(request.user, '**********************')
+  context = {'form': form}
+  return render(request, 'birthdays/addbirthday.html', context)
+
+    
 
 
   
