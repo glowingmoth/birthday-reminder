@@ -15,5 +15,5 @@ class Birthday(models.Model):
     return f'{self.firstName} {self.lastName}' 
 
   @property
-  def get_edit_url(self):
+  def get_update_url(self):
     return reverse('updateBirthday', kwargs={'pk':self.id} )
