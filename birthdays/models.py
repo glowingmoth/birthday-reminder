@@ -9,7 +9,8 @@ class Birthday(models.Model):
   birthDate = models.DateField()
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
-  created_by= models.ForeignKey(User, null=True,on_delete=models.CASCADE)
+  created_by = models.ForeignKey(User, null=True,on_delete=models.CASCADE, related_name='created_by')
+  updated_by = models.ForeignKey(User, null=True,on_delete=models.CASCADE, related_name='updated_by')
 
   def __str__(self):
     return f'{self.firstName} {self.lastName}' 

@@ -51,7 +51,7 @@ def updateBirthday(request, pk):
     
     if form.is_valid():
       mynewbirthdayobject = form.save()
-      mynewbirthdayobject.created_by = request.user
+      mynewbirthdayobject.updated_by = request.user
       mynewbirthdayobject.save()        
       return redirect('index')
   context = {'form': form}
