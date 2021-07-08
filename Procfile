@@ -1,1 +1,1 @@
-web: gunicorn birthday-reminder.wsgi —-log-file -
+web: gunicorn main.wsgi —-log-file -
