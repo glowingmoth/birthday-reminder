@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import os
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -26,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.sessionSTATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)s',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'birthdays',
@@ -114,7 +115,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Default primary key field type
