@@ -71,5 +71,26 @@
 
   </div>
 
+
+  <script>
+    function showNotification() {
+      const notification = new Notification('Birthday Reminder!', {
+        body: "It's someone's birthday today!"
+      });
+
+      if(Notification.permission === 'granted') {
+        showNotification();
+      } else if (Notification.permission !== 'granted') {
+        Notification.requestPermission().then(permission => {
+          if (permission == 'granted') {
+            showNotification();
+          }
+        })
+      }
+    }
+
+    console.log(Notification.permission);
+  </script>
+
 </body>
 </html>
