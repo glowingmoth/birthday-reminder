@@ -80,7 +80,7 @@
 
       if(Notification.permission === 'granted') {
         showNotification();
-      } else if (Notification.permission !== 'granted') {
+      } else if (Notification.permission !== 'denied') {
         Notification.requestPermission().then(permission => {
           if (permission == 'granted') {
             showNotification();
