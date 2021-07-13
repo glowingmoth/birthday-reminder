@@ -14,10 +14,9 @@
   
   <title>Birthday Reminder</title>
 
-  <!-- <script src="{% static 'birthdays/js/notification.js' %}"></script> -->
 </head>
 <body>
-
+  
   <div class="top-nav">
     <div>
       <a href="{% url 'addBirthday' %}">Add Birthday</a>
@@ -74,9 +73,13 @@
 
   </div>
 
-
-  <br />
   <button onclick="notifyMe()">Notify me!</button>
+
+  {% for object in object_today %}
+    {{ object.firstName|json_script:"person" }}
+  {% endfor %}
+  <script src="{% static 'birthdays/js/notification.js' %}"></script>
+
 </body>
 </html>
 

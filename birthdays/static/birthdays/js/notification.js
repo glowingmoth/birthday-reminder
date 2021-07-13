@@ -1,4 +1,8 @@
 
+var Person = JSON.parse(document.getElementById('person').textContent);
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     if (Notification.permission !== "granted")
       Notification.requestPermission();
@@ -16,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const notification = new Notification("Reminder!", {
         icon:
           "https://img.icons8.com/office/16/000000/birthday.png",
-        body: "It's someones birthday today!",
+        body: `It's ${Person}'s birthday today!`,
       });
       notification.onclick = function () {
         window.focus();

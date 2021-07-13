@@ -11,15 +11,17 @@ def index(request):
     testDate = datetime.datetime(1998, 1, 14)
     # timeNow = testDate
     timeNow = timezone.localtime()
+    message = "Superman's!"
   
     context = {
+      'message': message,
       'timeNow': timeNow,
       'object_list': Birthday.objects.all(),
       'object_this_month': Birthday.objects.filter(birthDate__month=timeNow.strftime('%m')),
       'object_this_week': Birthday.objects.filter(birthDate__week=timeNow.strftime('%W')),
       'object_today': Birthday.objects.filter(birthDate__month=timeNow.strftime('%m'), birthDate__day=timeNow.strftime('%d'))
     }
-    print(context['object_this_month'])
+    # print(context['object_this_month'])
     return render(request, 'birthdays/index.html', context)
 
 # There was some bug/issue with using 'timezone.now()' so I changed it to 'timezone.localtime()' and that resolved it.
