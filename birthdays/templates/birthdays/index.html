@@ -12,6 +12,36 @@
   <link rel="stylesheet" type="text/css" href="{% static 'birthdays/style.css' %}">
   
   <title>Birthday Reminder</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (Notification.permission !== "granted")
+          Notification.requestPermission();
+      });
+
+      function notifyMe() {
+        if (!Notification) {
+          alert("Desktop notifications not available in your browser");
+          return;
+        }
+
+        if (Notification.permission !== "granted")
+          Notification.requestPermission();
+        else {
+          const notification = new Notification("New Message", {
+            icon:
+              "https://img.icons8.com/office/16/000000/birthday.png",
+            body: "You have a new Message",
+          });
+          notification.onclick = function () {
+            window.focus();
+            this.close();
+          };
+        }
+      }
+    console.log(Notification.permission);
+  </script>
+  
 </head>
 <body>
 
@@ -72,35 +102,10 @@
   </div>
 
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        if (Notification.permission !== "granted")
-          Notification.requestPermission();
-      });
-
-      function notifyMe() {
-        if (!Notification) {
-          alert("Desktop notifications not available in your browser");
-          return;
-        }
-
-        if (Notification.permission !== "granted")
-          Notification.requestPermission();
-        else {
-          const notification = new Notification("New Message", {
-            icon:
-              "https://img.icons8.com/office/16/000000/birthday.png",
-            body: "You have a new Message",
-          });
-          notification.onclick = function () {
-            window.focus();
-            this.close();
-          };
-        }
-      }
-    console.log(Notification.permission);
-  </script>
-
+  
+  <h1>My First Push Notification</h1>
+  <br />
+  <button onclick="notifyMe()">Notify me!</button>
 </body>
 </html>
 
